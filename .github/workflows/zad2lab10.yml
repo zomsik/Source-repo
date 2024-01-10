@@ -34,3 +34,14 @@ jobs:
         platforms: linux/amd64,linux/arm64
         push: true
         tags: zomsik/zadanie2:latest
+
+  kubernetesCI:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout config repo
+      uses: actions/checkout@v4
+      with:
+        repository: zomsik/config-repo
+        token: ${{ secrets.TOKEN_GITHUB }}
+        ref: main
