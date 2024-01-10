@@ -23,7 +23,7 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    - name: Set global variable with version
+    - name: Set variable with version for output
       id: get_version
       run: |
         wersja=$(sed -n 's/.*Wersja: \([^<]*\).*/\1/p' index.html)
