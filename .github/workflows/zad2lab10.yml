@@ -48,7 +48,9 @@ jobs:
 
     - name: Extract version from index.html
       run: |
-        wersja=$(sed -n 's/.*Wersja: \([^<]*\).*/\1/p' app/index.html)
+        echo "$(ls)"
+        echo ls
+        wersja=$(sed -n 's/.*Wersja: \([^<]*\).*/\1/p' index.html)
         echo "Numer Wersji: ${wersja}"
 
     - name: Update image references in Config repo
