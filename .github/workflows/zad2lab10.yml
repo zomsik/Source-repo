@@ -62,7 +62,7 @@ jobs:
         git config --global user.name "GitHub Actions"
         sed -i "s|image: zomsik/zadanie2:.*|image: zomsik/zadanie2:${{ needs.dockerCI.outputs.wersja }}|g" deployment.yaml
         if git diff --quiet; then
-          echo "Brak zmian do zatwierdzenia."
+          echo "deployment.yaml nie wymaga commitowania."
         else
           git add deployment.yaml
           git commit -m "Aktualizacja wersji w deployment.yaml do wersji ${{ needs.dockerCI.outputs.wersja }} "
