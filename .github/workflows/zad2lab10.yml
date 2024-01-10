@@ -13,6 +13,8 @@ jobs:
     steps:
     - name: Checkout Source repo
       uses: actions/checkout@v3
+      with:
+        repository: zomsik/source-repo 
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
@@ -49,7 +51,6 @@ jobs:
     - name: Extract version from index.html
       run: |
         echo "$(ls)"
-        echo ls
         wersja=$(sed -n 's/.*Wersja: \([^<]*\).*/\1/p' index.html)
         echo "Numer Wersji: ${wersja}"
 
