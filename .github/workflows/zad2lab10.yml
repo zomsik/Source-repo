@@ -46,6 +46,11 @@ jobs:
         token: ${{ secrets.TOKEN_GITHUB }}
         ref: main
 
+    - name: Extract version from index.html
+      run: |
+        wersja=$(sed -n 's/.*Wersja: \([^<]*\).*/\1/p' app/index.html)
+        echo "Numer Wersji: ${wersja}"
+
     - name: Update image references in Config repo
       run: |
         git config --global user.email "actions@github.com"
