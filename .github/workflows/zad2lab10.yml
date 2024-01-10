@@ -60,7 +60,7 @@ jobs:
       run: |
         git config --global user.email "actions@github.com"
         git config --global user.name "GitHub Actions"
-        sed -i "s|image: zomsik/zadanie2:latest|image: zomsik/zadanie2:${{ needs.dockerCI.outputs.wersja }}|g" deployment.yaml
+        sed -i "s|image: zomsik/zadanie2:.*|image: zomsik/zadanie2:${{ needs.dockerCI.outputs.wersja }}|g" deployment.yaml
         git add deployment.yaml
         git commit -m "Aktualizacja wersji w deployment.yaml do wersji ${{ needs.dockerCI.outputs.wersja }} "
         git push origin main
